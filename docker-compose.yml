@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  jenkins:
+    build: .
+    container_name: jenkins_container
+    user: root
+    volumes:
+      - /mnt/data/jenkins_data/jenkins_home:/var/jenkins_home
+      - /mnt/data/jenkins_data/log:/var/logs
+      - /var/run/docker.sock:/var/run/docker.sock
+    
+    ports:
+      - "8080:8080"
+      - "50000:50000"
